@@ -7,7 +7,7 @@ const router = Router();
 router.use(protect);
 
 // Admin only routes
-router.get('/', authorize('admin'), (req, res) => {
+router.get('/', authorize('admin'), (_req, res) => {
   res.json({ message: 'Get all users - Admin only' });
 });
 

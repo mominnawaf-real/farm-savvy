@@ -48,7 +48,7 @@ export const createAnimal = async (req: AuthRequest, res: Response): Promise<voi
         action: 'added',
         description: `Added new animal ${animal.name} (#${animal.tagNumber})`,
         entityType: 'animal',
-        entityId: animal._id.toString(),
+        entityId: (animal._id as any).toString(),
         entityName: animal.name,
         userId: userId,
         farmId: farmId,
@@ -283,10 +283,10 @@ export const updateAnimal = async (req: AuthRequest, res: Response): Promise<voi
           action: 'updated',
           description,
           entityType: 'animal',
-          entityId: updatedAnimal!._id.toString(),
+          entityId: (updatedAnimal!._id as any).toString(),
           entityName: updatedAnimal!.name,
           userId: userId,
-          farmId: farm._id.toString(),
+          farmId: (farm._id as any).toString(),
           metadata: updateData
         });
       } catch (activityError) {
@@ -385,10 +385,10 @@ export const addHealthRecord = async (req: AuthRequest, res: Response): Promise<
         action: 'recorded',
         description: `Health check recorded for ${animal.name} (#${animal.tagNumber}) - ${req.body.type}`,
         entityType: 'animal',
-        entityId: animal._id.toString(),
+        entityId: (animal._id as any).toString(),
         entityName: animal.name,
         userId: userId,
-        farmId: farm._id.toString(),
+        farmId: (farm._id as any).toString(),
         metadata: {
           healthType: req.body.type,
           veterinarian: req.body.veterinarian,

@@ -52,7 +52,7 @@ export const createTask = async (req: AuthRequest, res: Response): Promise<void>
         action: 'created',
         description: `Created task: ${task.title}`,
         entityType: 'task',
-        entityId: task._id.toString(),
+        entityId: (task._id as any).toString(),
         entityName: task.title,
         userId: userId,
         farmId: farmId,
@@ -280,10 +280,10 @@ export const updateTask = async (req: AuthRequest, res: Response): Promise<void>
           action: 'completed',
           description: `Completed task: ${updatedTask!.title}`,
           entityType: 'task',
-          entityId: updatedTask!._id.toString(),
+          entityId: (updatedTask!._id as any).toString(),
           entityName: updatedTask!.title,
           userId: userId,
-          farmId: farm._id.toString(),
+          farmId: (farm._id as any).toString(),
           metadata: {
             category: updatedTask!.category,
             priority: updatedTask!.priority
@@ -441,10 +441,10 @@ export const completeTask = async (req: AuthRequest, res: Response): Promise<voi
         action: 'completed',
         description: `Completed task: ${task.title}`,
         entityType: 'task',
-        entityId: task._id.toString(),
+        entityId: (task._id as any).toString(),
         entityName: task.title,
         userId: userId,
-        farmId: farm._id.toString(),
+        farmId: (farm._id as any).toString(),
         metadata: {
           category: task.category,
           priority: task.priority

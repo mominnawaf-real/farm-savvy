@@ -7,7 +7,7 @@ const router = Router();
 router.use(protect);
 
 // Placeholder for animal routes
-router.get('/', (req, res) => {
+router.get('/', (_req, res) => {
   res.json({ message: 'Get all animals' });
 });
 

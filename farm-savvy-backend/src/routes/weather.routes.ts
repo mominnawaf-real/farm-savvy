@@ -7,7 +7,7 @@ const router = Router();
 router.use(protect);
 
 // Get current weather and forecast
-router.get('/', (req, res) => {
+router.get('/', (_req, res) => {
   // Mock weather data - in production, this would call a weather API
   const mockWeatherData = {
     success: true,

@@ -7,7 +7,7 @@ const router = Router();
 router.use(protect);
 
 // Placeholder for farm routes
-router.get('/', (req, res) => {
+router.get('/', (_req, res) => {
   res.json({ message: 'Get all farms' });
 });
 
